@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %-5p %msg%n"/>
+        </Console>
+        <RollingFile name="RollingFile"
+                     fileName="logs/cms.log"
+                     filePattern="logs/cms.%d{dd-MMM}.log">
+            <PatternLayout pattern="%d %-5p %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="off">
+            <AppenderRef ref="Console" level="off"/>
+            <AppenderRef ref="RollingFile" level="off"/>
+        </Root>
+    </Loggers>
+</Configuration>
